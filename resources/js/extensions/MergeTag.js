@@ -112,7 +112,7 @@ export const MergeTag = Node.create({
             Suggestion({
                 editor: this.editor,
                 char: '{{',
-                items: ({ query }) => this.options.mergeTags.filter(item => item.toLowerCase().startsWith(query.toLowerCase())).slice(0, 5),
+                items: ({ query }) => this.options.mergeTags.filter(item => item.toLowerCase().startsWith(query.toLowerCase())),
                 pluginKey: MergeTagPluginKey,
                 command: ({ editor, range, props }) => {
                     const nodeAfter = editor.view.state.selection.$to.nodeAfter

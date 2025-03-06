@@ -112,7 +112,7 @@ export const MergeTag = Node.create({
             Suggestion({
                 editor: this.editor,
                 char: '{{',
-                items: ({ query }) => this.options.mergeTags.filter(item => item.toLowerCase().startsWith(query.toLowerCase())),
+                items: ({ query }) => this.options.mergeTags.filter(item => item.toLowerCase().includes(query.toLowerCase())),
                 pluginKey: MergeTagPluginKey,
                 command: ({ editor, range, props }) => {
                     const nodeAfter = editor.view.state.selection.$to.nodeAfter
@@ -212,7 +212,7 @@ export const MergeTag = Node.create({
                                         },
 
                                     }"
-                                    class="tippy-content-p-0"
+                                    class="merge-tags-container tippy-content-p-0 overflow-y-scroll max-h-60"
                                 >
                                     <template x-for="(item, index) in items" :key="index">
                                         <button
